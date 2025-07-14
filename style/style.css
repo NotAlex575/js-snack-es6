@@ -17,3 +17,16 @@
     border-top: 1px solid black;
     width: 100%;
 }
+
+.bici-box {
+    height: 200px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.bici-img {
+    height: 200px;         
+    object-fit: contain;   
+}
