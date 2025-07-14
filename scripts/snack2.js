@@ -1,6 +1,6 @@
 let nomi_squadra = [];
 for(let i = 0; i < 5; i++){
-    nomi_squadra[i] = prompt("inserisci il nome della ",i+1," squadra: ")
+    nomi_squadra[i] = prompt("inserisci il nome della "+i+" squadra: ")
 }
 
 const squadre = [
@@ -31,10 +31,12 @@ const squadre = [
     }
 ]
 
-for(let squadra in squadre){
+for(let squadra of squadre){
     squadra.punti_fatti = Math.floor(Math.random()*10)
     squadra.falli_fatti = Math.floor(Math.random()*5)
 }
 
+const squadreFalli = squadre.map(({ nome, falli_fatti }) => ({ nome, falli_fatti }));
+console.log(squadreFalli);
 
 
