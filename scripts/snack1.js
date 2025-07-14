@@ -3,32 +3,32 @@
 const biciclette = [
     {
         nome: "Paolino",
-        peso: (Math.random()*12).toFixed(2)
+        peso: parseFloat((Math.random()*12).toFixed(2))
     },
 
     {
         nome: "Pancrazio",
-        peso: (Math.random()*12).toFixed(2)
+        peso: parseFloat((Math.random()*12).toFixed(2))
     },
 
     {
         nome: "Pierino",
-        peso: (Math.random()*12).toFixed(2)
+        peso: parseFloat((Math.random()*12).toFixed(2))
     },
 
     {
         nome: "Patrizia",
-        peso: (Math.random()*12).toFixed(2)
+        peso: parseFloat((Math.random()*12).toFixed(2))
     },
 
     {
         nome: "Gennaro",
-        peso: (Math.random()*12).toFixed(2)
+        peso: parseFloat((Math.random()*12).toFixed(2))
     },
 
     {
         nome: "Paola",
-        peso: (Math.random()*12).toFixed(2)
+        peso: parseFloat((Math.random()*12).toFixed(2))
     },
 
 ]
@@ -37,7 +37,7 @@ let piu_pesante = biciclette[0];
 
 for(let i = 1; i < biciclette.length; i++){
     console.log(biciclette[i].peso)
-    if(biciclette[i].peso < piu_pesante.peso){
+    if(biciclette[i].peso > piu_pesante.peso){
         piu_pesante = biciclette[i]
     }
 }
@@ -97,7 +97,7 @@ function timer_function(){
 
 function controllo_piu_pesante(){
     for(let i = 1; i < biciclette.length; i++){
-        if(biciclette[i].peso < piu_pesante.peso){
+        if(biciclette[i].peso > piu_pesante_in_pagina.peso){
             piu_pesante_in_pagina = biciclette[i];
             piu_pesante_index = i;
         }
