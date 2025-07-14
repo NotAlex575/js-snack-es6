@@ -1,3 +1,5 @@
+//ESERCIZIO
+
 const biciclette = [
     {
         nome: "Paolino",
@@ -46,6 +48,9 @@ console.log("La più pesante è:", piu_pesante);
 
 //EXTRA MIO
 
+const titolo = document.getElementById("titolo");
+const risultato = document.getElementById("risultato");
+
 const nome_bicicletta1 = document.getElementById("nome-bicicletta1");
 nome_bicicletta1.innerHTML = biciclette[0].nome;
 const nome_bicicletta2 = document.getElementById("nome-bicicletta2");
@@ -72,11 +77,10 @@ peso_bicicletta_5.innerHTML = biciclette[4].peso;
 const peso_bicicletta_6 = document.getElementById("peso-bicicletta-6");
 peso_bicicletta_6.innerHTML = biciclette[5].peso;
 
-const titolo = document.getElementById("titolo");
-const risultato = document.getElementById("risultato");
 
 let timer = 5;
-
+let piu_pesante_in_pagina = biciclette[0];
+let piu_pesante_index = 0;
 
 function timer_function(){
     if(timer > 0){
@@ -87,9 +91,34 @@ function timer_function(){
     else{
         titolo.classList.add("d-none");
         risultato.classList.remove("d-none");
+        controllo_piu_pesante();
     }
 }
 
+function controllo_piu_pesante(){
+    for(let i = 1; i < biciclette.length; i++){
+        if(biciclette[i].peso < piu_pesante.peso){
+            piu_pesante_in_pagina = biciclette[i];
+            piu_pesante_index = i;
+        }
+    }
+    for(let i = 0; i < biciclette.length; i++){
+        const container_bicicletta = document.getElementById(`container-bicicletta-${i+1}`); //prende nell'html l'elemento id con container-bicicletta-numero di i+1 (quindi da 1 a 6)
+        const nome_bicicletta = document.getElementById(`nome-bicicletta${i+1}`);            //prende nell'html l'elemento id con nome-bicicletta-numero di i+1 (quindi da 1 a 6)
+        const peso_bicicletta = document.getElementById(`peso-bicicletta-${i+1}`);           //prende nell'html l'elemento id con peso-bicicletta-numero di i+1 (quindi da 1 a 6)
+        container_bicicletta.classList.remove("col-md-4");
+        if (i != piu_pesante_index) {
+            container_bicicletta.remove();
+        }
+        else{
+            if (!container_bicicletta.classList.contains("col.12")){
+                container_bicicletta.classList.add("col-12");
+                nome_bicicletta.classList.add('text-center');
+                peso_bicicletta.classList.add('text-center');
+            }
+
+        }
+    }
+}
 
 timer_function();
-controllo_piu_pesante();
